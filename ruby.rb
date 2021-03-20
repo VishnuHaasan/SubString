@@ -23,10 +23,20 @@ def substring(arr,str)
   hash = Hash.new;
   arr.each do |string|
     x = checker(string,str);
-    puts "#{string}: #{x}";
     hash[string] = x if x>0   
   end;
   return hash;
 end;
-hash = substring(["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"],"Howdy partner, sit down! How's it going?");
+puts "Enter the string to be checked for: ";
+str = gets.chomp;
+puts "Enter the number of strings to be checked as substrings: ";
+n = gets.chomp.to_i;
+arr = Array.new;
+puts "Enter the strings to be checked as substrings: ";
+for i in 1..n do
+  string = gets.chomp;
+  arr.push(string);
+end;
+hash = substring(arr,str);
+puts "The resulting hash is: ";
 puts hash;
